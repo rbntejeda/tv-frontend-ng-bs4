@@ -1,0 +1,10 @@
+{
+  "/api": {
+    "target": "http://localhost/tv/backend/web",
+    "secure": false,
+    "pathRewrite": {
+        "^/api": ""
+      },
+    "changeOrigin": true
+  }
+}
