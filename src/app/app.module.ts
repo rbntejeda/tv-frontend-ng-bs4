@@ -3,10 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PlaylistCreateComponent } from './playlist/playlist-create/playlist-create.component';
+import { PlaylistAdminComponent } from './playlist/playlist-admin/playlist-admin.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PlaylistCreateComponent,
+    PlaylistAdminComponent
   ],
   imports: [
     BrowserModule,
