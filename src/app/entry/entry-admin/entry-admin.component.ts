@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { EntryService } from 'src/app/_service/entry.service';
+import { HttpParams } from '@angular/common/http';
+import { Entry } from 'src/app/_class/entry';
 
 @Component({
   selector: 'app-entry-admin',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EntryAdminComponent implements OnInit {
 
-  constructor() { }
+  constructor(private entryService:EntryService) { }
 
-  ngOnInit() {
+  public entries:Entry[]=[];
+
+  public params = new HttpParams();
+  
+  async ngOnInit() {
+    this.entryService.Get(this.params).subscribe((data)=>{
+      this.entries=data;
+    })
+
   }
 
 }

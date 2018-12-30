@@ -7,23 +7,23 @@
 </div>
 <div class="row">
   <div class="col">
-    <table class="table">
+    <table class="table table-sm">
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Title</th>
-          <th scope="col">Lang</th>
-          <th scope="col">State</th>
-          <th scope="col">Options</th>
+          <th scope="col">Titulo</th>
+          <th scope="col">Idioma</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Opciones</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>@mdo</td>
+        <tr *ngFor="let entry of entries;let i = index">
+          <th scope="row">{{i+1}}</th>
+          <td>{{entry.title}}</td>
+          <td>{{entry.lang}}</td>
+          <td>{{entry.state}}</td>
+          <td>{{entry.lang}}</td>
         </tr>
       </tbody>
     </table>

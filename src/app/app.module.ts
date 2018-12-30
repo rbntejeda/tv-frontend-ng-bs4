@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { PlaylistCreateComponent } from './playlist/playlist-create/playlist-create.component';
@@ -28,6 +28,7 @@ import { EntryCreateComponent } from './entry/entry-create/entry-create.componen
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
