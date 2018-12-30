@@ -15,12 +15,19 @@ export class EntryAdminComponent implements OnInit {
   public entries:Entry[]=[];
 
   public params = new HttpParams();
-  
-  async ngOnInit() {
+  public page=1;
+
+  public OnPageChange(e){
+    this.params=this.params.set("page",e);
     this.entryService.Get(this.params).subscribe((data)=>{
       this.entries=data;
     })
+  }
 
+  async ngOnInit() {
+    this.entryService.Get().subscribe((data)=>{
+      this.entries=data;
+    })
   }
 
 }
