@@ -1,3 +1,27 @@
-<p>
-  navbar works!
-</p>
+<div class="bg-primary">
+  <nav class="navbar navbar-expand-md navbar-dark container-fluid">
+    <a class="navbar-brand" [routerLink]="[]">IPTV - Ruben - Rodrigou!</a>
+    <button class="navbar-toggler hidden-sm-up" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="navbarsDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown" ngbDropdown>
+          <a class="nav-link dropdown-toggle" id="id01" [routerLink]="[]" ngbDropdownToggle>Playlist</a>
+          <div class="dropdown-menu" aria-labelledby="id01" ngbDropdownMenu>
+            <a class="dropdown-item" [routerLink]="['/playlist']">Administrar</a>
+            <a class="dropdown-item" [routerLink]="['/playlist/create']">Crear</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown" ngbDropdown>
+          <a class="nav-link dropdown-toggle" id="id01" [routerLink]="[]" ngbDropdownToggle>Entry</a>
+          <div class="dropdown-menu" aria-labelledby="id01" ngbDropdownMenu>
+            <a class="dropdown-item" [routerLink]="['/entry']">Administrar</a>
+            <a class="dropdown-item" [routerLink]="['/entry/create']">Crear</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
