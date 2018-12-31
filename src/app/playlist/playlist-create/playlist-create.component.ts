@@ -11,7 +11,6 @@ export class PlaylistCreateComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(new Entry({id:1,path:"hola",title:"hola",duration:-1}))
   }
 
 }

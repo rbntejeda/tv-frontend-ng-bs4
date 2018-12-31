@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EntryService } from 'src/app/_service/entry.service';
 import { HttpParams } from '@angular/common/http';
 import { Entry } from 'src/app/_class/entry';
+import { Pagination } from 'src/app/_class/pagination';
 
 @Component({
   selector: 'app-entry-admin',
@@ -13,20 +14,23 @@ export class EntryAdminComponent implements OnInit {
   constructor(private entryService:EntryService) { }
 
   public entries:Entry[]=[];
+  public pagination = new Pagination({page:1});
 
   public params = new HttpParams();
   public page=1;
 
-  public OnPageChange(e){
-    this.params=this.params.set("page",e);
-    this.entryService.Get(this.params).subscribe((data)=>{
-      this.entries=data;
+  public OnPageChange(e:number){
+    this.pagination.page=e;
+    this.entryService.Get(this.pagination.Params()).subscribe((response)=>{
+      this.pagination.Load(response.headers);
+      this.entries=response.body;
     })
   }
 
   async ngOnInit() {
-    this.entryService.Get().subscribe((data)=>{
-      this.entries=data;
+    this.entryService.Get(this.pagination.Params()).subscribe((response)=>{
+      this.entries=response.body;
+      this.pagination.Load(response.headers);
     })
   }
 
