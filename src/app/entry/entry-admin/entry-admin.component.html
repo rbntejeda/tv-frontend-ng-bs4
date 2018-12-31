@@ -4,6 +4,21 @@
       <h1>Administración <small>Entry</small></h1>
     </div>
   </div>
+  <div class="col m-2">
+    <form #formModel>
+      <div class="form-row justify-content-end">
+        <label class="col-form-label">Mostrar</label>
+        <div class="form-group">
+          <select class="form-control" name="perPage" [(ngModel)]="pagination.perPage" (ngModelChange)="OnUpdatePerPage($event)">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+          </select>
+        </div>
+        <label class="col-form-label">Elementos</label>
+      </div>
+    </form>
+  </div>
 </div>
 <div class="row">
   <div class="col">
@@ -20,7 +35,7 @@
             </thead>
             <tbody>
               <tr *ngFor="let entry of entries;let i = index">
-                <th scope="row">{{i+1}}</th>
+                <th scope="row">{{(pagination.page-1)*pagination.perPage+i+1}}</th>
                 <td>{{entry.title}}</td>
                 <td>{{entry.lang}}</td>
                 <td>{{entry.state}}</td>
