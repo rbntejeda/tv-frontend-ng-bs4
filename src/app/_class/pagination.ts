@@ -46,4 +46,16 @@ export class Pagination {
         this.perPage=parseInt(headers.get("X-Pagination-Per-Page"));
         // console.log(headers.get("X-Pagination-Page-Count"));
     }
+
+    AddParams(key,value)
+    {
+        var p = this.params || new HttpParams();
+        this.params = p.set(key,value);
+    }
+
+    DelParams(key)
+    {
+        var p = this.params || new HttpParams();
+        this.params=this.params.delete(key);
+    }
 }

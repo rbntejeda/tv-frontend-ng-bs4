@@ -7,6 +7,9 @@
   <div class="col m-2">
     <form #formModel>
       <div class="form-row justify-content-end">
+        <div class="form-group">
+          <input type="text" class="form-control" name="filter" placeholder="Buscar..." (keyup.enter)="OnFilterChange($event.target.value)">
+        </div>
         <label class="col-form-label">Mostrar</label>
         <div class="form-group">
           <select class="form-control" name="perPage" [(ngModel)]="pagination.perPage" (ngModelChange)="OnUpdatePerPage($event)">

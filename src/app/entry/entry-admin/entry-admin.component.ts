@@ -15,10 +15,7 @@ export class EntryAdminComponent implements OnInit {
 
   public entries:Entry[]=[];
   public pagination = new Pagination({page:1});
-
-  public params = new HttpParams();
-  public page=1;
-
+  
   public OnPageChange(e:number){
     this.pagination.page=e;
     this.entryService.Get(this.pagination.Params()).subscribe((response)=>{
@@ -27,20 +24,32 @@ export class EntryAdminComponent implements OnInit {
     })
   }
 
-  public OnUpdatePerPage(e)
+  public RescueData()
   {
-    this.pagination.perPage=e;
     this.entryService.Get(this.pagination.Params()).subscribe((response)=>{
       this.pagination.Load(response.headers);
       this.entries=response.body;
     })
   }
 
-  async ngOnInit() {
-    this.entryService.Get(this.pagination.Params()).subscribe((response)=>{
-      this.entries=response.body;
-      this.pagination.Load(response.headers);
-    })
+  public OnUpdatePerPage(e)
+  {
+    this.pagination.perPage=e;
+    this.RescueData();
+  }
+
+  public OnFilterChange(e){
+    var key = 'filter[title][like]';
+    if(e){
+      this.pagination.AddParams(key,e);
+    }else{
+      this.pagination.DelParams(key)
+    }
+    this.RescueData();
+  }
+
+  ngOnInit() {
+    this.RescueData();
   }
 
 }
