@@ -1,3 +1,48 @@
-<p>
-  playlist-admin works!
-</p>
+<div class="row">
+    <div class="col">
+      <div class="page-header">
+        <h1>Administración <small>Entry</small></h1>
+      </div>
+    </div>
+    <div class="col m-2">
+      <form #formModel>
+        <div class="form-row justify-content-end">
+          <label class="col-form-label">Mostrar</label>
+          <div class="form-group">
+            <select class="form-control" name="perPage" [(ngModel)]="pagination.perPage" (ngModelChange)="OnUpdatePerPage($event)">
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="50">50</option>
+            </select>
+          </div>
+          <label class="col-form-label">Elementos</label>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="table-resposive">
+          <table class="table table-sm">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Codigo</th>
+                  <th scope="col">Titulo</th>
+                  <th scope="col">Opciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let model of models;let i = index">
+                  <th scope="row">{{(pagination.page-1)*pagination.perPage+i+1}}</th>
+                  <td>{{model.id}}</td>
+                  <td>{{model.title}}</td>
+                  <td><button type="button" class="btn btn-primary btn-sm" [routerLink]="[ '/playlist', model.id ]"><span class="oi oi-eye"></span></button></td>
+                </tr>
+              </tbody>
+            </table>
+            <ngb-pagination (pageChange)="OnPageChange($event)" [collectionSize]="pagination.total" [(page)]="pagination.page" [pageSize]="pagination.perPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true"></ngb-pagination>
+      </div>
+  
+    </div>
+  </div>

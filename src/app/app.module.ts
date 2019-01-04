@@ -13,6 +13,7 @@ import { NavbarComponent } from './page/navbar/navbar.component';
 import { LayoutMainComponent } from './page/layout-main/layout-main.component';
 import { EntryAdminComponent } from './entry/entry-admin/entry-admin.component';
 import { EntryCreateComponent } from './entry/entry-create/entry-create.component';
+import { PlaylistViewComponent } from './playlist/playlist-view/playlist-view.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { EntryCreateComponent } from './entry/entry-create/entry-create.componen
     NavbarComponent,
     LayoutMainComponent,
     EntryAdminComponent,
-    EntryCreateComponent
+    EntryCreateComponent,
+    PlaylistViewComponent
   ],
   imports: [
     BrowserModule,

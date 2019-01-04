@@ -19,7 +19,6 @@ export class EntryAdminComponent implements OnInit {
   public OnPageChange(e:number){
     this.pagination.page=e;
     this.entryService.Get(this.pagination.Params()).subscribe((response)=>{
-      // this.pagination.Load(response.headers);
       this.entries=response.body;
     })
   }

@@ -6,6 +6,7 @@ import { PageNotFoundComponent } from './page/page-not-found/page-not-found.comp
 import { LayoutMainComponent } from './page/layout-main/layout-main.component';
 import { EntryAdminComponent } from './entry/entry-admin/entry-admin.component';
 import { EntryCreateComponent } from './entry/entry-create/entry-create.component';
+import { PlaylistViewComponent } from './playlist/playlist-view/playlist-view.component';
 
 const routes: Routes = [
   {
@@ -13,7 +14,8 @@ const routes: Routes = [
     component:LayoutMainComponent,
     children:[
       { path:"", component:PlaylistAdminComponent },
-      { path:"create", component:PlaylistCreateComponent }
+      { path:"create", component:PlaylistCreateComponent },
+      { path:":id", component:PlaylistViewComponent }
     ]
   },
   {
