@@ -15,4 +15,12 @@ export class EntryService {
   Get(params?:HttpParams){
     return this.http.get<Entry[]>(`${environment.endpoint}/${this.base}`,{ params, observe:"response" });
   }
+  
+  Refresh(params?:HttpParams){
+    return this.http.get(`${environment.endpoint}/${this.base}/refresh`,{ params, observe:"response" });
+  }
+
+  Sync(params?:HttpParams){
+    return this.http.get(`${environment.endpoint}/${this.base}/sync`,{ params, observe:"response" });
+  }
 }

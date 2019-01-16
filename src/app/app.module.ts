@@ -14,6 +14,7 @@ import { LayoutMainComponent } from './page/layout-main/layout-main.component';
 import { EntryAdminComponent } from './entry/entry-admin/entry-admin.component';
 import { EntryCreateComponent } from './entry/entry-create/entry-create.component';
 import { PlaylistViewComponent } from './playlist/playlist-view/playlist-view.component';
+import { ConfigComponent } from './page/config/config.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PlaylistViewComponent } from './playlist/playlist-view/playlist-view.co
     LayoutMainComponent,
     EntryAdminComponent,
     EntryCreateComponent,
-    PlaylistViewComponent
+    PlaylistViewComponent,
+    ConfigComponent
   ],
   imports: [
     BrowserModule,
