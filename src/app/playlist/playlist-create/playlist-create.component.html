@@ -1,3 +1,14 @@
-<p>
-  playlist-create works!
-</p>
+<div class="row">
+  <div class="col-md-12 order-md-1">
+    <h4 class="mb-3">Creación <small>Playlist</small></h4>
+    <form #formPlaylist (submit)="onSubmit()">
+      <div class="row">
+        <div class="col-md-12 mb-3">
+          <label for="firstName">Título</label>
+          <input type="text" class="form-control" name="title" [(ngModel)]="model.title" placeholder="Ingrese el titulo del la playlist..." required>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-lg btn-block" type="submit">Crear</button>
+    </form>
+  </div>
+</div>

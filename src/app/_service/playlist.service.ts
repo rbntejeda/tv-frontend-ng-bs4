@@ -14,11 +14,26 @@ export class PlaylistService {
 
   Get(params?:HttpParams)
   {
-    return this.http.get<Playlist[]>(`${environment.endpoint}/${this.base}`,{ params, observe:"response" });
+    return this.http.get<Playlist[]>(`${environment.endpoint}/${this.base}`, { params, observe:"response" });
   }
 
   GetByPk(id:number,params?:HttpParams)
   {
-    return this.http.get<Playlist>(`${environment.endpoint}/${this.base}/${id}`,{ params, observe:"response" });
+    return this.http.get<Playlist>(`${environment.endpoint}/${this.base}/${id}`, { params, observe:"response" });
+  }
+
+  Create(model:Playlist)
+  {
+    return this.http.post<Playlist>(`${environment.endpoint}/${this.base}`, model);
+  }
+
+  Update(id,model)
+  {
+    return this.http.put<Playlist>(`${environment.endpoint}/${this.base}/${id}`, model);
+  }
+
+  Delete(id)
+  {
+    return this.http.delete<Playlist>(`${environment.endpoint}/${this.base}/${id}`);
   }
 }

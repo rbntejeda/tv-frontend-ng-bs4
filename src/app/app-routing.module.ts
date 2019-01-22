@@ -8,15 +8,22 @@ import { EntryAdminComponent } from './entry/entry-admin/entry-admin.component';
 import { EntryCreateComponent } from './entry/entry-create/entry-create.component';
 import { PlaylistViewComponent } from './playlist/playlist-view/playlist-view.component';
 import { ConfigComponent } from './page/config/config.component';
+import { PlaylistUpdateComponent } from './playlist/playlist-update/playlist-update.component';
 
 const routes: Routes = [
+  {
+    path:"",
+    redirectTo:"playlist",
+    pathMatch:"full"
+  },
   {
     path:"playlist",
     component:LayoutMainComponent,
     children:[
       { path:"", component:PlaylistAdminComponent },
       { path:"create", component:PlaylistCreateComponent },
-      { path:":id", component:PlaylistViewComponent }
+      { path:":id", component:PlaylistViewComponent },
+      { path:"update/:id", component:PlaylistUpdateComponent },
     ]
   },
   {

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Entry } from 'src/app/_class/entry';
+import { Playlist } from 'src/app/_class/playlist';
+import { PlaylistService } from 'src/app/_service/playlist.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-playlist-create',
@@ -8,9 +10,16 @@ import { Entry } from 'src/app/_class/entry';
 })
 export class PlaylistCreateComponent implements OnInit {
 
-  constructor() { }
+  model:Playlist = new Playlist(null,null,null);
+
+  constructor(private playlistService:PlaylistService,private router:Router) { }
 
   ngOnInit() {
+  }
+
+  async onSubmit(){
+    this.model = await this.playlistService.Create(this.model).toPromise();
+    this.router.navigate(['playlist',this.model.id]);
   }
 
 }

@@ -15,6 +15,7 @@ import { EntryAdminComponent } from './entry/entry-admin/entry-admin.component';
 import { EntryCreateComponent } from './entry/entry-create/entry-create.component';
 import { PlaylistViewComponent } from './playlist/playlist-view/playlist-view.component';
 import { ConfigComponent } from './page/config/config.component';
+import { PlaylistUpdateComponent } from './playlist/playlist-update/playlist-update.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ConfigComponent } from './page/config/config.component';
     EntryAdminComponent,
     EntryCreateComponent,
     PlaylistViewComponent,
-    ConfigComponent
+    ConfigComponent,
+    PlaylistUpdateComponent
   ],
   imports: [
     BrowserModule,

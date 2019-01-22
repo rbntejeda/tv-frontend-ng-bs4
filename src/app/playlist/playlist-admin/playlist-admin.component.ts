@@ -12,17 +12,17 @@ export class PlaylistAdminComponent implements OnInit {
 
   constructor(private playListServices:PlaylistService) { }
 
-  public models:Playlist[]=[];
-  public pagination = new Pagination({page:1});
+  models:Playlist[]=[];
+  pagination = new Pagination({page:1});
   
-  public OnPageChange(e:number){
+  OnPageChange(e:number){
     this.pagination.page=e;
     this.playListServices.Get(this.pagination.Params()).subscribe((response)=>{
       this.models=response.body;
     })
   }
 
-  public RescueData()
+  RescueData()
   {
     this.playListServices.Get(this.pagination.Params()).subscribe((response)=>{
       this.pagination.Load(response.headers);
@@ -30,19 +30,25 @@ export class PlaylistAdminComponent implements OnInit {
     })
   }
 
-  public OnUpdatePerPage(e)
+  OnUpdatePerPage(e)
   {
     this.pagination.perPage=e;
     this.RescueData();
   }
 
-  public OnFilterChange(e){
+  OnFilterChange(e){
     var key = 'filter[title][like]';
     if(e){
       this.pagination.AddParams(key,e);
     }else{
       this.pagination.DelParams(key)
     }
+    this.RescueData();
+  }
+
+  async onDelete(id)
+  {
+    await this.playListServices.Delete(id).toPromise();
     this.RescueData();
   }
 
