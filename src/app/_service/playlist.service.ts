@@ -19,7 +19,7 @@ export class PlaylistService {
 
   GetByPk(id:number,params?:HttpParams)
   {
-    return this.http.get<Playlist>(`${environment.endpoint}/${this.base}/${id}`, { params, observe:"response" });
+    return this.http.get<Playlist>(`${environment.endpoint}/${this.base}/${id}`, { params });
   }
 
   Create(model:Playlist)

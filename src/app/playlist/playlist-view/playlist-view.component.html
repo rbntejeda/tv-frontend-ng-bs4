@@ -1,3 +1,22 @@
-<p>
-  playlist-view works! ID : {{id}}
-</p>
+<div class="row">
+  <div class="col-md-12 order-md-1">
+    <h4 class="mb-3">Ver <small>Playlist {{model.title}}</small></h4>
+      <div class="row">
+        <div class="col-md-5 mb-3">
+          <label for="firstName">Playlist Actual</label>
+          <input type="text" class="form-control" name="title" placeholder="Ingrese el titulo del la playlist..." required>
+        </div>
+        <div class="col-md-2 mb-3">
+          <label for="firstName">Operación</label>
+          <button class="btn btn-primary btn-lg btn-block" type="submit">Agregar</button>
+          <button class="btn btn-primary btn-lg btn-block" type="submit">Quitar</button>
+          <button class="btn btn-primary btn-lg btn-block" type="submit">Descargar</button>
+        </div>
+        <div class="col-md-5 mb-3">
+          <label for="firstName">Entradas del Sistema</label>
+          <input type="text" class="form-control" name="title" placeholder="Ingrese el titulo del la playlist..." required>
+
+        </div>
+      </div>
+  </div>
+</div>
