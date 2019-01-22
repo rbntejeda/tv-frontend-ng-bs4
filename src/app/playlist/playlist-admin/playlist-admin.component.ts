@@ -15,11 +15,10 @@ export class PlaylistAdminComponent implements OnInit {
   models:Playlist[]=[];
   pagination = new Pagination({page:1});
   
-  OnPageChange(e:number){
+  async OnPageChange(e:number){
     this.pagination.page=e;
-    this.playListServices.Get(this.pagination.Params()).subscribe((response)=>{
-      this.models=response.body;
-    })
+    var { body } = await this.playListServices.Get(this.pagination.Params()).toPromise();
+    this.models = body;
   }
 
   RescueData()

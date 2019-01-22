@@ -13,31 +13,29 @@ export class EntryAdminComponent implements OnInit {
 
   constructor(private entryService:EntryService) { }
 
-  public entries:Entry[]=[];
-  public pagination = new Pagination({page:1});
+  entries:Entry[]=[];
+  pagination = new Pagination({page:1});
   
-  public OnPageChange(e:number){
+  async OnPageChange(e:number){
     this.pagination.page=e;
-    this.entryService.Get(this.pagination.Params()).subscribe((response)=>{
-      this.entries=response.body;
-    })
+    var { body } = await this.entryService.Get(this.pagination.Params()).toPromise();
+    this.entries=body;
   }
 
-  public RescueData()
+  async RescueData()
   {
-    this.entryService.Get(this.pagination.Params()).subscribe((response)=>{
-      this.pagination.Load(response.headers);
-      this.entries=response.body;
-    })
+    var { headers, body } = await this.entryService.Get(this.pagination.Params()).toPromise();
+    this.pagination.Load(headers);
+    this.entries=body;
   }
 
-  public OnUpdatePerPage(e)
+  OnUpdatePerPage(e)
   {
     this.pagination.perPage=e;
     this.RescueData();
   }
 
-  public OnFilterChange(e){
+  OnFilterChange(e){
     var key = 'filter[title][like]';
     if(e){
       this.pagination.AddParams(key,e);
