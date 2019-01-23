@@ -12,7 +12,7 @@ export class EntryService {
 
   constructor(private http:HttpClient) { }
 
-  Get(params?:HttpParams){
+  GetAll(params?:HttpParams){
     return this.http.get<Entry[]>(`${environment.endpoint}/${this.base}`,{ params, observe:"response" });
   }
   

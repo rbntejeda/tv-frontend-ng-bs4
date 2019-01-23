@@ -18,13 +18,13 @@ export class EntryAdminComponent implements OnInit {
   
   async OnPageChange(e:number){
     this.pagination.page=e;
-    var { body } = await this.entryService.Get(this.pagination.Params()).toPromise();
+    var { body } = await this.entryService.GetAll(this.pagination.Params()).toPromise();
     this.entries=body;
   }
 
   async RescueData()
   {
-    var { headers, body } = await this.entryService.Get(this.pagination.Params()).toPromise();
+    var { headers, body } = await this.entryService.GetAll(this.pagination.Params()).toPromise();
     this.pagination.Load(headers);
     this.entries=body;
   }

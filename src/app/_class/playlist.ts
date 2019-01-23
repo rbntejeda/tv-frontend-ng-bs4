@@ -5,6 +5,7 @@ export class Playlist {
         public id:number,
         public title:string,
         public creado:string,
-        public entries?:Entry[]
+        public entries?:Entry[],
+        public playlistEntries?:any[],
     ){}
 }
