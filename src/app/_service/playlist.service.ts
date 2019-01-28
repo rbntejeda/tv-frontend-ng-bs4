@@ -36,4 +36,9 @@ export class PlaylistService {
   {
     return this.http.delete<Playlist>(`${environment.endpoint}/${this.base}/${id}`);
   }
+
+  Download(id)
+  {
+    return this.http.get(`${environment.endpoint}/file/${id}`,{responseType:"arraybuffer" });
+  }
 }

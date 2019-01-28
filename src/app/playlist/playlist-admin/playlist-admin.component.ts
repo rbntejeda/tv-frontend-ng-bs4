@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Pagination } from 'src/app/_class/pagination';
 import { PlaylistService } from 'src/app/_service/playlist.service';
 import { Playlist } from 'src/app/_class/playlist';
+import { saveAs } from "file-saver";
 
 @Component({
   selector: 'app-playlist-admin',
@@ -45,10 +46,20 @@ export class PlaylistAdminComponent implements OnInit {
     this.RescueData();
   }
 
-  async onDelete(id)
+  async onDelete({id,title}:Playlist)
   {
-    await this.playListServices.Delete(id).toPromise();
-    this.RescueData();
+    if(confirm(`Esta seguro que desea eliminar la lista ${id} - ${title}`))
+    {
+      await this.playListServices.Delete(id).toPromise();
+      this.RescueData();
+    }
+  }
+
+  async onDownload({id,title}:Playlist)
+  {
+    var response = await this.playListServices.Download(id).toPromise();
+    var file = new Blob([response]);
+    saveAs(file,`list ${id} - ${title}.m3u`);
   }
 
   ngOnInit() {

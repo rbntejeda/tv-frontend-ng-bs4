@@ -38,8 +38,9 @@
                   <td>{{model.id}}</td>
                   <td>{{model.title}}</td>
                   <td>
-                    <button type="button" class="btn btn-primary btn-sm" [routerLink]="[ '/playlist', model.id ]"><span class="oi oi-eye"></span></button>
-                    <button type="button" class="btn btn-danger btn-sm" (click)="onDelete(model.id)"><span class="oi oi-trash"></span></button>
+                    <button type="button" class="btn btn-primary btn-sm mr-1" [routerLink]="[ '/playlist', model.id ]"><span class="oi oi-eye"></span></button>
+                    <button type="button" class="btn btn-warning btn-sm mr-1" (click)="onDownload(model)"><span class="oi oi-data-transfer-download"></span></button>
+                    <button type="button" class="btn btn-danger btn-sm" (click)="onDelete(model)"><span class="oi oi-trash"></span></button>
                   </td>
                 </tr>
               </tbody>
