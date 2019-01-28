@@ -7,5 +7,6 @@ export class Playlist {
         public creado:string,
         public entries?:Entry[],
         public playlistEntries?:any[],
+        public cntEntry?:number
     ){}
 }

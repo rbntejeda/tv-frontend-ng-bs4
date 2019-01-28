@@ -29,6 +29,7 @@
                   <th scope="col">#</th>
                   <th scope="col">Codigo</th>
                   <th scope="col">Titulo</th>
+                  <th scope="col">Canales</th>
                   <th scope="col">Opciones</th>
                 </tr>
               </thead>
@@ -37,6 +38,7 @@
                   <th scope="row">{{(pagination.page-1)*pagination.perPage+i+1}}</th>
                   <td>{{model.id}}</td>
                   <td>{{model.title}}</td>
+                  <td>{{model.cntEntry}}</td>
                   <td>
                     <button type="button" class="btn btn-primary btn-sm mr-1" [routerLink]="[ '/playlist', model.id ]"><span class="oi oi-eye"></span></button>
                     <button type="button" class="btn btn-warning btn-sm mr-1" (click)="onDownload(model)"><span class="oi oi-data-transfer-download"></span></button>

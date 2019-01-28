@@ -14,7 +14,7 @@ export class PlaylistAdminComponent implements OnInit {
   constructor(private playListServices:PlaylistService) { }
 
   models:Playlist[]=[];
-  pagination = new Pagination({page:1});
+  pagination = new Pagination({page:1,expand:["cntEntry"]});
   
   async OnPageChange(e:number){
     this.pagination.page=e;
