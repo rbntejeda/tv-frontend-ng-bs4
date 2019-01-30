@@ -16,6 +16,7 @@ import { EntryCreateComponent } from './entry/entry-create/entry-create.componen
 import { PlaylistViewComponent } from './playlist/playlist-view/playlist-view.component';
 import { ConfigComponent } from './page/config/config.component';
 import { PlaylistUpdateComponent } from './playlist/playlist-update/playlist-update.component';
+import { PlaylistChangeEntryComponent } from './playlist/playlist-change-entry/playlist-change-entry.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PlaylistUpdateComponent } from './playlist/playlist-update/playlist-upd
     EntryCreateComponent,
     PlaylistViewComponent,
     ConfigComponent,
-    PlaylistUpdateComponent
+    PlaylistUpdateComponent,
+    PlaylistChangeEntryComponent
   ],
   imports: [
     BrowserModule,

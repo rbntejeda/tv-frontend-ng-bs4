@@ -1,0 +1,115 @@
+<div class="row">
+  <div class="col">
+    <div class="page-header">
+      <h4 class="mb-3">Entradas <small>Playlist {{model?.title}}</small></h4>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-5">
+    <div class="row">
+      <div class="col">
+        <form #formModel>
+          <div class="form-row">
+            <div class="form-group col">
+              <input type="text" class="form-control" name="filter" placeholder="Buscar..." (keyup.enter)="OnFilterChange($event.target.value)">
+            </div>
+            <label class="col-form-label">Mostrar</label>
+            <div class="form-group">
+              <select class="form-control" name="perPage" [(ngModel)]="pagination.perPage" (ngModelChange)="OnUpdatePerPage($event)">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+              </select>
+            </div>
+            <label class="col-form-label">Elementos</label>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="table-resposive">
+          <table class="table table-sm table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Idioma</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Seleción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let model of models;let i = index">
+                <th scope="row">{{(pagination.page-1)*pagination.perPage+i+1}}</th>
+                <td>{{model.title}}</td>
+                <td>{{model.lang}}</td>
+                <td>{{model.state}}</td>
+                <td><label class="switch"><input type="checkbox" [checked]="isChecked(model.id)" (change)="onChangeChecked(model.id)"><span
+                      class="slider round"></span></label></td>
+              </tr>
+            </tbody>
+          </table>
+          <ngb-pagination (pageChange)="OnPageChange($event)" [collectionSize]="pagination.total" [(page)]="pagination.page"
+            [pageSize]="pagination.perPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true"></ngb-pagination>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-2" style="padding-top: 200px;">
+    <button class="btn btn-primary btn-block">Agregar</button>
+    <button class="btn btn-primary btn-block">Quitar</button>
+  </div>
+  <div class="col-5">
+    <div class="row">
+      <div class="col">
+        <form #formModel>
+          <div class="form-row">
+            <div class="form-group col">
+              <input type="text" class="form-control" name="filter" placeholder="Buscar..." (keyup.enter)="OnFilterChange($event.target.value)">
+            </div>
+            <label class="col-form-label">Mostrar</label>
+            <div class="form-group">
+              <select class="form-control" name="perPage" [(ngModel)]="pagination.perPage" (ngModelChange)="OnUpdatePerPage($event)">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+              </select>
+            </div>
+            <label class="col-form-label">Elementos</label>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="table-resposive">
+          <table class="table table-sm table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Idioma</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Seleción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let model of models;let i = index">
+                <th scope="row">{{(pagination.page-1)*pagination.perPage+i+1}}</th>
+                <td>{{model.title}}</td>
+                <td>{{model.lang}}</td>
+                <td>{{model.state}}</td>
+                <td><label class="switch"><input type="checkbox" [checked]="isChecked(model.id)" (change)="onChangeChecked(model.id)"><span
+                      class="slider round"></span></label></td>
+              </tr>
+            </tbody>
+          </table>
+          <ngb-pagination (pageChange)="OnPageChange($event)" [collectionSize]="pagination.total" [(page)]="pagination.page"
+            [pageSize]="pagination.perPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true"></ngb-pagination>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

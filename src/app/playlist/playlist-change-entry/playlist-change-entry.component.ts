@@ -10,12 +10,11 @@ import * as _ from "lodash";
 import { PlaylistEntryService } from 'src/app/_service/playlist-entry.service';
 
 @Component({
-  selector: 'app-playlist-view',
-  templateUrl: './playlist-view.component.html',
-  styleUrls: ['./playlist-view.component.css']
+  selector: 'app-playlist-change-entry',
+  templateUrl: './playlist-change-entry.component.html',
+  styleUrls: ['./playlist-change-entry.component.css']
 })
-export class PlaylistViewComponent implements OnInit , OnDestroy{
-
+export class PlaylistChangeEntryComponent implements OnInit {
   constructor(private route:ActivatedRoute, private playlistService:PlaylistService, private entryService:EntryService,private playlistEntryServices:PlaylistEntryService) { }
 
   id: number;
@@ -24,7 +23,7 @@ export class PlaylistViewComponent implements OnInit , OnDestroy{
   params=(new HttpParams).set('expand','playlistEntries');
   models:Entry[];
   
-  pagination = new Pagination({page:1});
+  pagination = new Pagination({page:1,perPage:10});
   
   ngOnInit() {
     this.sub = this.route.params.subscribe(async ({id}) => {
