@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "https://tv.ruben.cl/api",
+    "target": "http://localhost/tv/backend/web",
     "secure": false,
     "pathRewrite": {
         "^/api": ""
